@@ -10,19 +10,14 @@ import random
 
 def interCounter(row, seenInteractions):
   CA = []
-  intSeenCA = []
-  intCount = 0
-  for cols in itertools.combination(range(len(row), t):
-    vals = row[cols]
-    CA.append(list(cols), list(vals))
-
-  for cols in CA:
-    for index in range(len(seenInteractions)):
-      if row[cols] = seenInteraction[index]
-        intCount = intCount +1
-        intSeen = str(row[cols])+"; "+str(cols)
-        intSeenCA.append(intSeen)
-  return intSeenCA
+  newInters = set()
+  for i in range(len(row)):
+      for j in range(i+1,len(row)):
+          if row[i] != -1 and row[j] != -1:
+              interaction = ''.join([str(row[i]),str(row[j]),'r',str(i),'c',str(j)]);
+              if interaction not in seenInteractions:
+                  newInters.add(interaction)
+  return newInters
 
 #t = 2
 def naiveDiagonalApproach(t,k,v):
@@ -47,15 +42,16 @@ def naiveDiagonalApproach(t,k,v):
         # maximizes coverage, or pick random if coverage can't be maximized
         for row in CA:
             for i in range(len(row)):
-                greatestSeen, toAdd = -1 = 0
-                for sym in range(v):
-                    row[i] = sym
-                    if interCounter(row,seenInteractions) > greatestSeen:
-                        toAdd = sym
-                if toAdd == -1:
-                    toAdd = random.randint(0,v-1)
-                row[row.index(-1)] = toAdd
-                seenInteractions.update(interCounter(row,seenInteractions))
+                if row[i] == -1:
+                    greatestSeen, toAdd = -1, -1
+                    for sym in range(v):
+                        row[i] = sym
+                        if interCounter(row,seenInteractions) > greatestSeen:
+                            toAdd = sym
+                    if toAdd == -1:
+                        toAdd = random.randint(0,v-1)
+                    row[i] = toAdd
+                    seenInteractions.update(interCounter(row,seenInteractions))
     return CA
 
 
