@@ -6,7 +6,7 @@ import random
 # Research Attempt #1
 # approach is to pick random symbol from v, then constructively add one column & one row at a time
 # to CA via adding one value to right of rightmost topmost value, and one value underneath leftmost bottommost
-# value then find best position to add for every don't care position (or random if you can't add any new interactions)
+# value then find best value to add for every don't care position (or random if you can't add any new interactions)
 
 def interCounter(row, seenInteractions):
   CA = []
@@ -22,7 +22,7 @@ def interCounter(row, seenInteractions):
 #t = 2
 def naiveDiagonalApproach(t,k,v):
     CA = []
-    # pick random symbol to start the covering array
+    # pick random symbol to start the covering array with
     random_sym, unseenInterCount, seenInteractions = random.randint(0,v-1), v**t*(special.binom(k,t)), set()
     row = [-1]*(k-1)
     row.insert(0,random_sym)
