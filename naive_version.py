@@ -19,7 +19,7 @@ def interCounter(row, seenInteractions):
                   newInters.add(interaction)
   return newInters
 
-#t = 2
+#method assumes that t = 2
 def naiveDiagonalApproach(t,k,v):
     CA = []
     # pick random symbol to start the covering array with
