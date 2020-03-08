@@ -3,7 +3,7 @@ from scipy import special
 import math
 import random
 
-#Research Attempt #1
+# Research Attempt #1
 # approach is to pick random symbol from v, then constructively add one column & one row at a time
 # to CA via adding one value to right of rightmost topmost value, and one value underneath leftmost bottommost
 # value then find best position to add for every don't care position (or random if you can't add any new interactions)
@@ -56,5 +56,8 @@ def naiveDiagonalApproach(t,k,v):
                     toAdd = random.randint(0,v-1)
                 row[row.index(-1)] = toAdd
                 seenInteractions.update(interCounter(row,seenInteractions))
-
     return CA
+
+
+if __name__ == '__main__':
+    naiveDiagonalApproach(2,7,2)
