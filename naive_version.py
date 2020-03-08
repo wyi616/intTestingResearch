@@ -6,14 +6,23 @@ import random
 #Research Attempt #1
 # approach is to pick random symbol from v, then constructively add one column & one row at a time
 # to CA via adding one value to right of rightmost topmost value, and one value underneath leftmost bottommost
-# value, then find best position to add for every don't care position (or random if you can't add any new interactions)
+# value then find best position to add for every don't care position (or random if you can't add any new interactions)
 
-def interCounter(row,seenInteractions):
-    ## TODO: finish interCounter
-    intCount = 0
-    for i in range(t):
-        for j in range(i+1):
-    return intCount
+def interCounter(row, seenInteractions):
+  CA = []
+  intSeenCA = []
+  intCount = 0
+  for cols in itertools.combination(range(len(row), t):
+    vals = row[cols]
+    CA.append(list(cols), list(vals))
+
+  for cols in CA:
+    for index in range(len(seenInteractions)):
+      if row[cols] = seenInteraction[index]
+        intCount = intCount +1
+        intSeen = str(row[cols])+"; "+str(cols)
+        intSeenCA.append(intSeen)
+  return intSeenCA
 
 #t = 2
 def naiveDiagonalApproach(t,k,v):
